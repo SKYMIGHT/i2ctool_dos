@@ -1,0 +1,17 @@
+!define BLANK ""
+C:\DOS_I2C_2EPROM\2E_I2C\src\I2C_eeprom\I2C.obj : C:\DOS_I2C_2EPROM\2E_I2C\s&
+rc\I2C_eeprom\I2C.C .AUTODEPEND
+ @C:
+ cd C:\DOS_I2C_2EPROM\2E_I2C\src\I2C_eeprom
+ *wcc386 I2C.C -i="C:\WATCOM/h" -w4 -e25 -zq -od -d2 -6r -bt=dos -fo=.obj -m&
+f
+
+C:\DOS_I2C_2EPROM\2E_I2C\src\I2C_eeprom\I2C_EEPROM.exe : C:\DOS_I2C_2EPROM\2&
+E_I2C\src\I2C_eeprom\I2C.obj .AUTODEPEND
+ @C:
+ cd C:\DOS_I2C_2EPROM\2E_I2C\src\I2C_eeprom
+ @%write I2C_EEPROM.lk1 FIL I2C.obj
+ @%append I2C_EEPROM.lk1 
+ *wlink name I2C_EEPROM d all sys dos4g op m op maxe=25 op q op symf @I2C_EE&
+PROM.lk1
+
